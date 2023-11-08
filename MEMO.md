@@ -14,6 +14,11 @@ python3.8 tools/create_data_nusc.py --root-path /raid/datasets/NuScenes/nuscenes
 CUDA_VISIBLE_DEVICES=3 PORT=30500 tools/dist_train.sh projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py 1 --work-dir work_dirs/stream_petr_r50_flash_704_bs2_seq_24e/
 ```
 
+# Evaluation
+```sh
+CUDA_VISIBLE_DEVICES=3 PORT=30500 tools/dist_test.sh projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py work_dirs/stream_petr_r50_flash_704_bs2_seq_24e/latest.pth 1 --eval bbox
+```
+
 # Modified File Table
 
 - 기존 path를 새로운 path로 수정함  
@@ -47,3 +52,26 @@ FileNotFoundError: [Errno 2] No such file or directory: './data/nuscenes/samples
 ```
 
 # Softlink
+디렉토리의 바로가기를 만드는 것. 아래의 솔루션을 통해 복잡한 data path 문제를 한방에 해결할 수 있음.
+---
+To create a softlink in Linux that allows access to `./data/nuscenes` as if it were accessing `/raid/datasets/NuScenes/nuscenes/`, you would use the `ln` command with the `-s` flag for creating a symbolic link. Here's how you can do it:
+
+1. First, if the `./data/nuscenes` already exists and you don't need it, you should remove it to avoid a conflict with the new symlink. Be very careful with this command as it will delete data:
+
+   ```sh
+   rm -r ./data/nuscenes
+   ```
+
+2. Second, create the data directory:
+
+   ```sh
+   mkdir ./data
+   ```
+
+3. Then, create the symlink:
+
+   ```sh
+   ln -s /raid/datasets/NuScenes/nuscenes/ ./data/nuscenes
+   ```
+
+This command creates a symbolic link named `nuscenes` inside the `./data` directory that points to `/raid/datasets/NuScenes/nuscenes/`. When you access `./data/nuscenes`, you'll be redirected to `/raid/datasets/NuScenes/nuscenes/`.

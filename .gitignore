@@ -1,1 +1,6 @@
 ckpts/
+data/
+work_dirs/
+projects/
+test/
+mmdetection3d/
