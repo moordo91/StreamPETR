@@ -201,7 +201,8 @@ test_pipeline = [
 ]
 
 data = dict(
-    samples_per_gpu=batch_size,
+    # samples_per_gpu=batch_size,
+    samples_per_gpu=batch_size, # ADJUSTED
     workers_per_gpu=4,
     train=dict(
         type=dataset_type,
@@ -228,7 +229,8 @@ data = dict(
 
 optimizer = dict(
     type='AdamW', 
-    lr=4e-4, # bs 8: 2e-4 || bs 16: 4e-4
+    # lr=4e-4, # bs 8: 2e-4 || bs 16: 4e-4
+    lr=2e-4,    # ADJUSTED
     paramwise_cfg=dict(
         custom_keys={
             'img_backbone': dict(lr_mult=0.1), # set to 0.1 always better when apply 2D pretrained.

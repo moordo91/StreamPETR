@@ -15,8 +15,20 @@ CUDA_VISIBLE_DEVICES=3 PORT=30500 tools/dist_train.sh projects/configs/StreamPET
 ```
 
 # Evaluation
+## Detection
 ```sh
 CUDA_VISIBLE_DEVICES=3 PORT=30500 tools/dist_test.sh projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py work_dirs/stream_petr_r50_flash_704_bs2_seq_24e/latest.pth 1 --eval bbox
+```
+```sh
+CUDA_VISIBLE_DEVICES=3 PORT=30500 tools/dist_test.sh projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py work_dirs/stream_petr_vov_flash_800_bs2_seq_24e/latest.pth 1 --eval bbox
+```
+## Tracking
+<!-- ```sh
+python3.8 nusc_tracking/pub_test.py --version v1.0-test --checkpoint /home/dihan/home/StreamPETR/test/stream_petr_r50_flash_704_bs2_seq_24e/Thu_Nov__9_12_32_57_2023/pts_bbox/results_nusc.json --data_root /raid/datasets/NuScenes/nuscenes/
+``` -->
+
+```sh
+python3.8 nusc_tracking/pub_test.py --version v1.0-trainval --checkpoint /home/dihan/home/StreamPETR/test/stream_petr_r50_flash_704_bs2_seq_24e/Thu_Nov__9_12_32_57_2023/pts_bbox/results_nusc.json --data_root /raid/datasets/NuScenes/nuscenes/
 ```
 
 # Modified File Table
