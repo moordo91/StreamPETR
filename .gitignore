@@ -5,3 +5,4 @@ projects/
 test/
 mmdetection3d/
 tracking_result.json
+result_vis/

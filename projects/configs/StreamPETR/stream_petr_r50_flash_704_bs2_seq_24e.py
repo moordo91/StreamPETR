@@ -18,8 +18,8 @@ class_names = [
     'motorcycle', 'bicycle', 'pedestrian', 'traffic_cone'
 ]
 
-num_gpus = 8
-batch_size = 2
+num_gpus = 2
+batch_size = 8
 num_iters_per_epoch = 28130 // (num_gpus * batch_size)
 num_epochs = 24
 
@@ -205,8 +205,7 @@ test_pipeline = [
 ]
 
 data = dict(
-    # samples_per_gpu=batch_size,
-    samples_per_gpu=8,  # ADJUSTED.
+    samples_per_gpu=batch_size,
     workers_per_gpu=4,
     train=dict(
         type=dataset_type,
@@ -234,7 +233,7 @@ data = dict(
 optimizer = dict(
     type='AdamW', 
     # lr=4e-4, # bs 8: 2e-4 || bs 16: 4e-4
-    lr=2e-4,    # ADJUSTED.
+    lr=4e-4,    # ADJUSTED.
     paramwise_cfg=dict(
         custom_keys={
             'img_backbone': dict(lr_mult=0.25), # 0.25 only for Focal-PETR with R50-in1k pretrained weights
