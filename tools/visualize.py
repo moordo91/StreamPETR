@@ -4,7 +4,7 @@ import json
 from visual_nuscenes import NuScenes
 use_gt = False
 out_dir = './result_vis/'
-result_json = "/home/dihan/home/StreamPETR/test/stream_petr_r50_flash_704_bs2_seq_24e/Fri_Nov_10_13_05_48_2023/pts_bbox/results_nusc"
+result_json = "/home/dihan/home/StreamPETR/test/stream_petr_vov_flash_800_bs2_seq_24e/Sun_Nov_12_15_32_19_2023/pts_bbox/results_nusc"
 dataroot='./data/nuscenes'
 if not os.path.exists(out_dir):
     os.mkdir(out_dir)

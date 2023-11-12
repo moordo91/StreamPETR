@@ -11,7 +11,7 @@ python3.8 tools/create_data_nusc.py --root-path /raid/datasets/NuScenes/nuscenes
 
 # Training
 ```sh
-CUDA_VISIBLE_DEVICES=3,4 PORT=30501 tools/dist_train.sh projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py 2 --work-dir work_dirs/stream_petr_vov_flash_800_bs2_seq_24e/
+CUDA_VISIBLE_DEVICES=2,3 PORT=30501 tools/dist_train.sh projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py 2 --work-dir work_dirs/stream_petr_vov_flash_800_bs2_seq_24e/
 ```
 
 # Evaluation
@@ -28,7 +28,7 @@ python3.8 nusc_tracking/pub_test.py --version v1.0-test --checkpoint /home/dihan
 ``` -->
 
 ```sh
-python3.8 nusc_tracking/pub_test.py --version v1.0-trainval --checkpoint /home/dihan/home/StreamPETR/test/stream_petr_r50_flash_704_bs2_seq_24e/Thu_Nov__9_12_32_57_2023/pts_bbox/results_nusc.json --data_root /raid/datasets/NuScenes/nuscenes/
+python3.8 nusc_tracking/pub_test.py --version v1.0-trainval --checkpoint /home/dihan/home/StreamPETR/test/stream_petr_vov_flash_800_bs2_seq_24e/Sun_Nov_12_15_32_19_2023/pts_bbox/results_nusc.json --data_root /raid/datasets/NuScenes/nuscenes/
 ```
 
 # Visualization
