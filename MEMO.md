@@ -6,7 +6,7 @@
 # Creating *.pkl
 But I didn't use this command, because I downloaded files from the github.
 ```sh
-python3.8 tools/create_data_nusc.py --root-path /raid/datasets/NuScenes/nuscenes --out-dir /raid/datasets/NuScenes/nuscenes --extra-tag nuscenes2d --version v1.0
+python tools/create_data_nusc.py --root-path /raid/datasets/NuScenes/nuscenes --out-dir /raid/datasets/NuScenes/nuscenes --extra-tag nuscenes2d --version v1.0
 ```
 
 # Training
@@ -28,12 +28,12 @@ python3.8 nusc_tracking/pub_test.py --version v1.0-test --checkpoint /home/dihan
 ``` -->
 
 ```sh
-python3.8 nusc_tracking/pub_test.py --version v1.0-trainval --checkpoint /home/dihan/home/StreamPETR/test/stream_petr_vov_flash_800_bs2_seq_24e/Sun_Nov_12_15_32_19_2023/pts_bbox/results_nusc.json --data_root /raid/datasets/NuScenes/nuscenes/
+python nusc_tracking/pub_test.py --version v1.0-trainval --checkpoint /home/dihan/home/StreamPETR/test/stream_petr_vov_flash_800_bs2_seq_24e/Sun_Nov_12_15_32_19_2023/pts_bbox/results_nusc.json --data_root /raid/datasets/NuScenes/nuscenes/
 ```
 
 # Visualization
 ```sh
-python3.8 tools/visualize.py
+python tools/visualize.py
 ```
 
 # Modified File Table
@@ -42,7 +42,7 @@ python3.8 tools/visualize.py
 - 몇몇 test 코드(tests/data/\*), converter 코드 및 visualize 등은 그대로 유지
 - Before의 '.' 유무에 대해서 고민해볼 것
 
-| File | LN | Before | After |
+| File | Line | Before | After |
 |:---|:---:|:---|:---|
 |nus-3d.py|10|'data/nuscenes/'|'/raid/datasets/NuScenes/nuscenes/'|
 |nus-mono3d.py|2|'data/nuscenes/'|'/raid/datasets/NuScenes/nuscenes/'|
