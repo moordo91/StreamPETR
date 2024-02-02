@@ -131,9 +131,9 @@ def main():
     
     end = time.time()
 
-    second = (end-start) 
+    second = (end - start) 
 
-    speed=size / second
+    speed = size / second
     print("The speed is {} FPS".format(speed))
 
     nusc_annos["meta"] = {
@@ -189,7 +189,7 @@ def test_time():
     for i in range(3):
         speeds.append(main())
 
-    print("Speed is {} FPS".format( max(speeds)  ))
+    print("Speed is {} FPS".format( max(speeds) ))
 
 if __name__ == '__main__':
     save_first_frame()

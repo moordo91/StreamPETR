@@ -17,9 +17,6 @@ CUDA_VISIBLE_DEVICES=2,3 PORT=30501 tools/dist_train.sh projects/configs/StreamP
 # Evaluation
 ## Detection
 ```sh
-CUDA_VISIBLE_DEVICES=3 PORT=30500 tools/dist_test.sh projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py work_dirs/stream_petr_r50_flash_704_bs2_seq_24e/latest.pth 1 --eval bbox
-```
-```sh
 CUDA_VISIBLE_DEVICES=3 PORT=30500 tools/dist_test.sh projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py work_dirs/stream_petr_vov_flash_800_bs2_seq_24e/latest.pth 1 --eval bbox
 ```
 ## Tracking

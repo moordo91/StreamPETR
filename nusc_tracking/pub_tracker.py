@@ -123,7 +123,7 @@ class PubTracker(object):
       invalid = ((dist > max_diff.reshape(N, 1)) + \
       (item_cat.reshape(N, 1) != track_cat.reshape(1, M))) > 0
 
-      dist = dist  + invalid * 1e18
+      dist = dist + invalid * 1e18
       if self.hungarian:
         dist[dist > 1e18] = 1e18
         matched_indices = np.array(linear_assignment(copy.deepcopy(dist)))
